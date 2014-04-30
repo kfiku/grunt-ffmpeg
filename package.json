@@ -1,7 +1,7 @@
 {
   "name": "grunt-ffmpeg",
   "description": "Grunt task to wrap ffmpeg",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/kfiku/grunt-ffmpeg",
   "author": "Grzegorz Klimek (https://github.com/kfiku)",
   "repository": {
@@ -33,7 +33,14 @@
     "jit-grunt": "^0.5.0",
     "grunt-contrib-clean": "^0.5.0"
   },
-  "keywords": [],
+  "keywords": [
+    "grunt",
+    "gruntplugin",
+    "ffmpeg",
+    "node-ffmpeg",
+    "node-ffmpeg",
+    "fluent-ffmpeg"
+  ],
   "dependencies": {
     "fluent-ffmpeg": "^1.7.1",
     "each-async": "^0.1.2",
