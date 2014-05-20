@@ -78,6 +78,7 @@ module.exports = function(grunt) {
         options: {
           FFmpegOptions: {
             withAudioChannels: 1,
+            withAudioFrequency: 36000
           }
         },
         files: [{

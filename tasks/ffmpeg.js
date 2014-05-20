@@ -91,6 +91,14 @@ var gruntFFmpeg = {
       }
     });
 
+    // fix some mp3 generation issues
+    if(outputExtenstion === '.mp3') {
+      // mp3 and withAudioFrequency don't work, so remove it
+      if(ff.withAudioFrequency) {
+        ff.withAudioFrequency('');
+      }
+    }
+
     // start encoding and save file
     ff.saveToFile(output);
   }
