@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
   require('jit-grunt')(grunt, {
-    ffmpeg: 'lib/ffmpeg.js'
+    ffmpeg: 'tasks/ffmpeg.js'
   });
 
   grunt.initConfig({
@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         src: 'Gruntfile.js'
       },
       lib: {
-        src: ['lib/**/*.js']
+        src: ['tasks/**/*.js']
       },
       test: {
         src: ['test/**/*.js']
