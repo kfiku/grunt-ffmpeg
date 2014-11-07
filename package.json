@@ -1,7 +1,7 @@
 {
   "name": "grunt-ffmpeg",
   "description": "Grunt task to wrap ffmpeg",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/kfiku/grunt-ffmpeg",
   "author": "Grzegorz Klimek (https://github.com/kfiku)",
   "repository": {

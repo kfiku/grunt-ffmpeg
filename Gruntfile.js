@@ -42,7 +42,7 @@ module.exports = function(grunt) {
     },
     ffmpeg: {
       options: {
-        debug: true,
+        debug: true
       },
       compile: {
         options: {

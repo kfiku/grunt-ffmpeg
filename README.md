@@ -7,7 +7,7 @@ You need FFmpeg >= 0.9 installed to work with this plugin.
 Read about it [here](https://github.com/schaermu/node-fluent-ffmpeg#prerequisites)
 
 ### Install the plugin with:
-```
+```sh
 npm install grunt-ffmpeg --save-dev
 ```
 
@@ -51,14 +51,41 @@ Generated video size `WIDTH x HEIGHT`
 Type: `Object`  
 Default: `undefined`  
 Example:
-```
+```js
 {
   withAudioChannels: 1
 }
 ```
 
 Object of extra `node-fluent-ffmpeg` options. Full list [here](https://github.com/schaermu/node-fluent-ffmpeg#supplying-ffmpeg-options)
-
+You can merge FFmpegOptions from `options` and actual task config:
+```js
+ffmpeg: {
+  options: {
+    FFmpegOptions: {
+      withVideoCodec: 'libx624',
+      withAudioChannels: 2
+    }
+  },
+  compile: {
+    options: {
+      FFmpegOptions: {
+        withAudioChannels: 1,
+        withAspectRatio: 1.33
+      }
+    },
+    files: [...]
+  }
+}
+```
+With this config `compile` task will have this FFmpegOptions:
+```js
+FFmpegOptions: {
+  withVideoCodec: 'libx624', // from options
+  withAudioChannels: 1, // merge task.options with options
+  withAspectRatio: 1.33 // from task.options
+}
+```
 
 ### Options Events
 
@@ -104,7 +131,7 @@ Triggers on single file and give codec info object
 
 Generate `*.mp4` files from `*.avi` and `*.flv` source files
 
-```javascript
+```js
 grunt.initConfig({
   ffmpeg: {
     video: {
@@ -127,7 +154,7 @@ grunt.registerTask('default', ['ffmpeg']);
 
 Generate `*.ogg` and `*.mp3` files from `*.wav` source files
 
-```javascript
+```js
 grunt.initConfig({
   ffmpeg: {
     audio: {
@@ -156,7 +183,7 @@ grunt.registerTask('default', ['ffmpeg']);
 
 Generate `*.ogg` and `*.mp3` files from `*.wav` source files
 
-```javascript
+```js
 grunt.initConfig({
   ffmpeg: {
     compile: {
@@ -212,6 +239,9 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+### 2014-07-11 v0.1.4
+ * [#1](https://github.com/kfiku/grunt-ffmpeg/issues/1) Add feature to merge options.FFmpegOptions with task.options.FFmpegOptions
+
 ### 2014-05-01 v0.1.0
  * init release
 
