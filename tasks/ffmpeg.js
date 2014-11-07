@@ -106,9 +106,14 @@ var gruntFFmpeg = {
 
 module.exports = function(grunt) {
   grunt.registerMultiTask('ffmpeg', 'grunt FFmpeg wrapper', function () {
+    var defaults = grunt.config.get('ffmpeg').options;
     var options = this.options({
       debug: false
     });
+
+    if(defaults && defaults.FFmpegOptions && options.FFmpegOptions) {
+      options.FFmpegOptions = _.extend(defaults.FFmpegOptions, options.FFmpegOptions);
+    }
 
     log = grunt.log.writeln;
 
